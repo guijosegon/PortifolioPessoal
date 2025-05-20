@@ -24,14 +24,14 @@ export default function App() {
     <div className={`${darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-100 text-gray-900"} min-h-screen font-sans`}>
       <header className={`sticky top-0 z-10 ${darkMode ? "bg-gray-800" : "bg-white"} shadow`}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-          <h1 className="text-xl font-semibold text-center md:text-left">Guilherme José Gonçalves</h1>
+          <h1 className="text-xl font-semibold text-center md:text-left">Portfólio </h1>
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 text-sm font-medium text-center md:text-left">
             <nav className="space-x-4 md:space-x-6 flex justify-center">
               <a href="#sobre" className="hover:underline">Sobre mim</a>
               <a href="#projetos" className="hover:underline">Projetos</a>
-              <a href="#contato" className="hover:underline">Contato</a>
               <a href="#blog" className="hover:underline">Blog</a>
               <a href="#Formulario" className="hover:underline">Envie uma mensagem</a>
+              <a href="#contato" className="hover:underline">Contato</a>
             </nav>
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -43,6 +43,7 @@ export default function App() {
         </div>
       </header>
       <main className="px-6 py-16 max-w-5xl mx-auto">
+
         <motion.section
           className="grid md:grid-cols-2 gap-10 items-center"
           initial={{ opacity: 0, y: -30 }}
@@ -52,7 +53,7 @@ export default function App() {
           <div>
             <h2 className="text-4xl font-bold leading-snug">Olá, eu sou Guilherme Gonçalves</h2>
             <p className="text-lg mt-4">
-              Desenvolvedor Full-Stack com rápida capacidade de aprendizagem, comprometido com projetos e processos ágeis. Atualmente cursando Ciência da Computação na UNESC e atuando como desenvolvedor e Scrum Master na Narwal Sistemas.
+              Desenvolvedor Full-Stack com rápida capacidade de aprendizagem, comprometido com projetos e processos ágeis. Atualmente cursando Ciência da Computação na UNESC e atuando como desenvolvedor e scrum master na Narwal Sistemas.
             </p>
             <a
               href="#projetos"
@@ -73,24 +74,39 @@ export default function App() {
         <section id="sobre" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Sobre mim</h3>
           <p className="text-base leading-relaxed">
-            Desenvolvedor Full-Stack com experiência em C#, .NET, JavaScript, Angular e banco de dados como SQL Server, MySQL e SQLite. Atuante como Scrum Master, realizando code reviews, gerenciamento de pipelines no Azure e facilitando cerimônias ágeis. Busco constantemente novos desafios e aprimoramento profissional.
+            Desenvolvedor Full-Stack com experiência em C#, .NET, JavaScript e bancos de dados como SQL Server.
+            Atuo também como Scrum Master, conduzindo code reviews, gerenciamento de pipelines no Azure e facilitando cerimônias ágeis.
+            Estou sempre em busca de novos desafios e crescimento profissional contínuo.
           </p>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-              <h4 className="font-semibold mb-1">📌 Experiência</h4>
-              <p className="text-sm">Narwal Sistemas - Desenvolvedor Full-Stack</p>
-              <p className="text-sm">Márcio Bikes - Assistente Geral</p>
+              <h4 className="font-semibold mb-2">📌 Experiência</h4>
+              <ul className="text-sm list-disc list-inside space-y-1">
+                <li>
+                  <strong>Narwal Sistemas – Desenvolvedor Full-Stack:</strong> Atuação como Scrum Master, gerenciamento de projetos (NPI, On-Call, entre outros), code reviews e gerenciamento de DevOps.
+                </li>
+                <li>
+                  <strong>Márcio Bikes – Assistente Geral:</strong> Organização de estoque, mecânica e vendas de bicicletas.
+                </li>
+              </ul>
             </div>
             <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-              <h4 className="font-semibold mb-1">🛠️ Hard Skills</h4>
-              <p className="text-sm">C#, .NET, Razor, JavaScript, Angular</p>
-              <p className="text-sm">SQL Server, MySQL, SQLite</p>
-              <p className="text-sm">DevOps: Azure, Pipelines, CI/CD</p>
-              <p className="text-sm">Arquitetura: MVC, TDD, DDD, SOLID, Clean Code</p>
+              <h4 className="font-semibold mb-2">🛠️ Hard Skills</h4>
+              <ul className="text-sm list-disc list-inside space-y-1">
+                <li><strong>Linguagens/Frameworks:</strong> C#, .NET/.NET Core, Razor/Blazor, Java, JavaScript, Angular, React.</li>
+                <li><strong>Banco de Dados:</strong> SQL Server, MySQL, SQLite, MongoDB, Postgres.</li>
+                <li><strong>DevOps:</strong> Azure, Pipelines, CI/CD.</li>
+                <li><strong>Arquitetura:</strong> MVC, TDD, DDD, SOLID, Clean Code.</li>
+              </ul>
             </div>
             <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-              <h4 className="font-semibold mb-1">🧠 Soft Skills</h4>
-              <p className="text-sm">Liderança (Scrum Master), Resolução de problemas, Trabalho em equipe, Adaptabilidade</p>
+              <h4 className="font-semibold mb-2">🧠 Soft Skills</h4>
+              <ul className="text-sm list-disc list-inside space-y-1">
+                <li>Liderança (Scrum Master)</li>
+                <li>Resolução de problemas</li>
+                <li>Trabalho em equipe</li>
+                <li>Adaptabilidade</li>
+              </ul>
             </div>
           </div>
         </section>
@@ -116,20 +132,23 @@ export default function App() {
           </div>
         </section>
 
-        <section id="contato" className="mt-24">
-          <h3 className="text-2xl font-bold mb-4">Contato</h3>
-          <ul className="text-sm mb-4">
-            <li><strong>Email:</strong> guilhermejosegon@gmail.com</li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/guilhermejosegon" className="underline" target="_blank">guilhermejosegon</a></li>
-          </ul>
-          <div className={`p-4 rounded w-fit shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-            <QRCode value={window.location.href} size={128} />
-          </div>
-        </section>
-
         <section id="blog" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Blog</h3>
-          <p className="text-base text-gray-400">Em breve, artigos técnicos e tutoriais serão publicados aqui.</p>
+          <p className="mb-6">Pesquisas e estudos realizados: (Em desenvolvimento)</p>
+          <div className="grid gap-4">
+            <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+              <h4 className="text-lg font-semibold mb-1">Scrum na Prática: Entregando Valor com Agilidade</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
+              <a
+                href=""
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 text-sm underline"
+              >
+                Acessar artigo
+              </a>
+            </div>
+          </div>
         </section>
 
         <section id="Formulario" className="mt-24">
@@ -149,9 +168,23 @@ export default function App() {
             </button>
           </form>
         </section>
+
+        <section id="contato" className="mt-24">
+          <h3 className="text-2xl font-bold mb-4">Contato</h3>
+          <ul className="text-sm mb-4">
+            <li><strong>Email:</strong> guilhermejosegon@gmail.com</li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/guilhermejosegon" className="underline" target="_blank">guilhermejosegon</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/guijosegon" className="underline" target="_blank">guilhermejosegon</a></li>
+          </ul>
+          <div className={`p-4 rounded w-fit shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+            <QRCode value={window.location.href} size={128} />
+          </div>
+        </section>
+
       </main>
 
       <footer className="text-center py-6 text-sm border-t mt-24 dark:border-gray-700">
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Este é o portfólio pessoal desenvolvido em React + TypeScript com Vite e Tailwind CSS, hospedado gratuitamente no Render. Usado especialmente para apredizagem em Tailwind CSS.</p>
         © {new Date().getFullYear()} Guilherme José Gonçalves. Todos os direitos reservados.
       </footer>
     </div>
