@@ -62,7 +62,7 @@ export default function App() {
           </div>
           <div className="flex justify-center">
             <img
-              src="/src/img/perfil.png"
+              src="/perfil.png"
               alt="Foto de Guilherme Gonçalves"
               className="w-48 h-48 rounded-full border-4 border-black object-cover"
             />
