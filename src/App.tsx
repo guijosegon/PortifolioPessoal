@@ -2,6 +2,17 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import QRCode from "react-qr-code";
 
+const MotionCard = ({ children, delay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay }}
+  >
+    {children}
+  </motion.div>
+);
+
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem("theme");
@@ -20,6 +31,13 @@ export default function App() {
       .catch(err => console.error("Erro ao buscar repositórios:", err));
   }, [darkMode]);
 
+  const scrollToId = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className={`${darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-100 text-gray-900"} min-h-screen font-sans`}>
       <header className={`sticky top-0 z-10 ${darkMode ? "bg-gray-800" : "bg-white"} shadow`}>
@@ -27,11 +45,11 @@ export default function App() {
           <h1 className="text-xl font-semibold text-center md:text-left">Portfólio </h1>
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 text-sm font-medium text-center md:text-left">
             <nav className="space-x-4 md:space-x-6 flex justify-center">
-              <a href="#sobre" className="hover:underline">Sobre mim</a>
-              <a href="#projetos" className="hover:underline">Projetos</a>
-              <a href="#blog" className="hover:underline">Blog</a>
-              <a href="#Formulario" className="hover:underline">Envie uma mensagem</a>
-              <a href="#contato" className="hover:underline">Contato</a>
+              <button onClick={() => scrollToId("sobre")}>Sobre mim</button>
+              <button onClick={() => scrollToId("projetos")}>Projetos</button>
+              <button onClick={() => scrollToId("blog")}>Blog</button>
+              <button onClick={() => scrollToId("Formulario")}>Envie uma mensagem</button>
+              <button onClick={() => scrollToId("contato")}>Contato</button>
             </nav>
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -115,19 +133,21 @@ export default function App() {
           <h3 className="text-2xl font-bold mb-4">Projetos</h3>
           <p className="mb-6">Repositórios públicos do meu GitHub:</p>
           <div className="grid gap-4">
-            {repos.slice(0, 5).map((repo) => (
-              <div key={repo.id} className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-                <h4 className="text-lg font-semibold mb-1">{repo.name}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{repo.description || "Sem descrição."}</p>
-                <a
-                  href={repo.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 text-sm underline"
-                >
-                  Ver no GitHub
-                </a>
-              </div>
+            {repos.slice(0, 5).map((repo, index) => (
+              <MotionCard key={repo.id} delay={index * 0.1}>
+                <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+                  <h4 className="text-lg font-semibold mb-1">{repo.name}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{repo.description || "Sem descrição."}</p>
+                  <a
+                    href={repo.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 dark:text-blue-400 text-sm underline"
+                  >
+                    Ver no GitHub
+                  </a>
+                </div>
+              </MotionCard>
             ))}
           </div>
         </section>
