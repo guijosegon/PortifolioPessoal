@@ -160,12 +160,12 @@ export default function App() {
               <h4 className="text-lg font-semibold mb-1">Scrum na Prática: Entregando Valor com Agilidade</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
               <a
-                href=""
+                href="https://github.com/guijosegon/GuiaCompletoScrum"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 dark:text-blue-400 text-sm underline"
               >
-                Acessar artigo
+                Acessar pesquisa
               </a>
             </div>
           </div>
