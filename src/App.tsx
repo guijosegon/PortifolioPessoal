@@ -133,7 +133,9 @@ export default function App() {
           <h3 className="text-2xl font-bold mb-4">Projetos</h3>
           <p className="mb-6">Repositórios públicos do meu GitHub:</p>
           <div className="grid gap-4">
-            {repos.slice(0, 5).map((repo, index) => (
+            {repos.slice(0, 8)
+            .filter(repo => !repo.fork && repo.name !== "guijosegon"&& repo.name !== "guia-completo-scrum")
+            .map((repo, index) => (
               <MotionCard key={repo.id} delay={index * 0.1}>
                 <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
                   <h4 className="text-lg font-semibold mb-1">{repo.name}</h4>
