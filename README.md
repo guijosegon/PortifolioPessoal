@@ -22,50 +22,6 @@ Este é o portfólio pessoal desenvolvido em **React + TypeScript** com **Vite**
 
 ---
 
-## 🚀 Rodando localmente
-
-Clone o repositório:
-
-```bash
-git clone https://github.com/guijosegon/PortifolioPessoal.git
-cd PortifolioPessoal
-```
-
-Instale as dependências:
-
-```bash
-npm install
-```
-
-Inicie o servidor de desenvolvimento:
-
-```bash
-npm run dev
-```
-
----
-
-## 🌐 Deploy no Render
-
-1. Acesse [https://render.com](https://render.com)
-2. Clique em **New Static Site**
-3. Conecte com seu GitHub e selecione o repositório `PortifolioPessoal`
-4. Preencha os campos:
-
-| Campo               | Valor             |
-|---------------------|-------------------|
-| Build Command       | `npm run build`   |
-| Publish Directory   | `dist`            |
-
-5. Clique em **Create Static Site**
-6. Após o deploy, você receberá uma URL como:
-
-```
-https://portifoliopessoal.onrender.com
-```
-
----
-
 ![Tela Inicial](https://raw.githubusercontent.com/guijosegon/project-assets/master/Portifolio/projetos.png)
 
 ## ✨ Funcionalidades
