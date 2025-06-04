@@ -1,0 +1,11 @@
+# Dependências do Node
+node_modules/
+
+# Logs
+npm-debug.log*
+
+# Editor/IDE
+.vscode/
+
+# Arquivos de lock
+package-lock.json

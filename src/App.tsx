@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 import QRCode from "react-qr-code";
 
@@ -139,7 +140,7 @@ export default function App() {
               <MotionCard key={repo.id} delay={index * 0.1}>
                 <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
                   <h4 className="text-lg font-semibold mb-1">{repo.name}</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{repo.description || "Sem descrição."}</p>
+                  <p className="text-sm text-gray-800 dark:text-gray-300 mb-2">{repo.description || "Sem descrição."}</p>
                   <a
                     href={repo.html_url}
                     target="_blank"
@@ -160,7 +161,7 @@ export default function App() {
           <div className="grid gap-4">
             <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
               <h4 className="text-lg font-semibold mb-1">Scrum na Prática: Entregando Valor com Agilidade</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
+              <p className="text-sm text-gray-800 dark:text-gray-300 mb-2">Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
               <a
                 href="https://github.com/guijosegon/GuiaCompletoScrum"
                 target="_blank"
@@ -191,18 +192,41 @@ export default function App() {
           </form>
         </section>
 
-        <section id="contato" className="mt-24">
-          <h3 className="text-2xl font-bold mb-4">Contato</h3>
-          <ul className="text-sm mb-4">
-            <li><strong>Email:</strong> guilhermejosegon@gmail.com</li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/guilhermejosegon" className="underline" target="_blank">guilhermejosegon</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/guijosegon" className="underline" target="_blank">guilhermejosegon</a></li>
-          </ul>
-          <div className={`p-4 rounded w-fit shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-            <QRCode value={window.location.href} size={128} />
-          </div>
-        </section>
+<section id="contato" className="mt-24">
+  <h3 className="text-2xl font-bold mb-4">Contato</h3>
+  <ul className="text-sm mb-6 space-y-3">
+    <li className="flex items-center gap-2">
+      <FaEnvelope className="text-lg" />
+      <span>guilhermejosegon@gmail.com</span>
+    </li>
+    <li className="flex items-center gap-2">
+      <FaLinkedin className="text-lg" />
+      <a
+        href="https://www.linkedin.com/in/guilhermejosegon"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline hover:text-blue-500"
+      >
+        linkedin.com/in/guilhermejosegon
+      </a>
+    </li>
+    <li className="flex items-center gap-2">
+      <FaGithub className="text-lg" />
+      <a
+        href="https://github.com/guijosegon"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline hover:text-blue-500"
+      >
+        github.com/guijosegon
+      </a>
+    </li>
+  </ul>
 
+  <div className={`p-4 rounded w-fit shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+    <QRCode value={window.location.href} size={128} />
+  </div>
+</section>
       </main>
 
       <footer className="text-center py-6 text-sm border-t mt-24 dark:border-gray-700">
