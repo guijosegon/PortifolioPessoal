@@ -1,11 +1,12 @@
-# Portfólio Pessoal – Guilherme José Gonçalves
+# Portfólio Pessoal
 
 Este é o portfólio pessoal desenvolvido em **React + TypeScript** com **Vite** e **Tailwind CSS**, hospedado gratuitamente no [Render](https://render.com).
+
+![Tela Inicial](https://raw.githubusercontent.com/guijosegon/project-assets/master/Portifolio/inicio.png)
 
 ## 📌 Visite online
 
 🔗 https://portifoliopessoal.onrender.com  
-_(ou seu domínio personalizado, se configurado)_
 
 ---
 
@@ -64,6 +65,8 @@ https://portifoliopessoal.onrender.com
 ```
 
 ---
+
+![Tela Inicial](https://raw.githubusercontent.com/guijosegon/project-assets/master/Portifolio/projetos.png)
 
 ## ✨ Funcionalidades
 
