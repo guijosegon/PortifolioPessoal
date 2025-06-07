@@ -76,7 +76,7 @@ export default function App() {
             </p>
             <a
               href="#projetos"
-              className="inline-block mt-6 bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition"
+              className={`inline-block mt-6 ${darkMode ? "bg-black text-white" : "bg-white text-gray-900"} px-6 py-2 rounded-md hover:bg-gray-800 transition`}
             >
               Ver Projetos
             </a>
@@ -93,52 +93,81 @@ export default function App() {
         <section id="sobre" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Sobre mim</h3>
           <p className="text-base leading-relaxed">
-            Desenvolvedor Full-Stack com experiência em C#, .NET, JavaScript e bancos de dados como SQL Server.
-            Atuo também como Scrum Master, conduzindo code reviews, gerenciamento de pipelines no Azure e facilitando cerimônias ágeis.
-            Estou sempre em busca de novos desafios e crescimento profissional contínuo.
+          Desenvolvedor Full-Stack com experiência profissional em C#, .NET, JavaScript e bancos de dados como SQL Server. Atuo com foco em integrações (RESTful APIs, OData, Webhooks), otimizações (LINQ, paralelismo, cache), autenticação (JWT, OAuth2), além de arquitetura monolítica modular e noções de microsserviços. Também possuo domínio em comunicação em tempo real com SignalR.
+          <br />
+          <br />
+          Como Scrum Master, facilito cerimônias e processos ágeis, realizo code reviews e revisões de produto com visão técnica, além de gerenciar pipelines e implantações no Azure.
+          <br />
+          <br />
+          Estou em constante evolução, sempre em busca de novos desafios e aprimoramento profissional.
           </p>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-              <h4 className="font-semibold mb-2">📌 Experiência</h4>
-              <ul className="text-sm list-disc list-inside space-y-1">
-                <li>
-                  <strong>Narwal Sistemas – Desenvolvedor Full-Stack:</strong> Atuação como Scrum Master, gerenciamento de projetos (NPI, On-Call, entre outros), code reviews e gerenciamento de DevOps.
-                </li>
-                <li>
-                  <strong>Márcio Bikes – Assistente Geral:</strong> Organização de estoque, mecânica e vendas de bicicletas.
-                </li>
-              </ul>
-            </div>
-            <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-              <h4 className="font-semibold mb-2">🛠️ Hard Skills</h4>
-              <ul className="text-sm list-disc list-inside space-y-1">
-                <li><strong>Linguagens/Frameworks:</strong> C#, .NET/.NET Core, Razor/Blazor, Java, JavaScript, Angular, React.</li>
-                <li><strong>Banco de Dados:</strong> SQL Server, MySQL, SQLite, MongoDB, Postgres.</li>
-                <li><strong>DevOps:</strong> Azure, Pipelines, CI/CD.</li>
-                <li><strong>Arquitetura:</strong> MVC, TDD, DDD, SOLID, Clean Code.</li>
-              </ul>
-            </div>
-            <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-              <h4 className="font-semibold mb-2">🧠 Soft Skills</h4>
-              <ul className="text-sm list-disc list-inside space-y-1">
-                <li>Liderança (Scrum Master)</li>
-                <li>Resolução de problemas</li>
-                <li>Trabalho em equipe</li>
-                <li>Adaptabilidade</li>
-              </ul>
-            </div>
+            <MotionCard delay={0.1}>
+              <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+                <h4 className="flex items-center gap-2 font-semibold mb-4">
+                  <span className="inline-flex items-center justify-center w-6 h-6 bg-blue-600 text-white rounded-full text-sm">📌</span>
+                  Experiência
+                </h4>
+                <ul className="text-sm space-y-3">
+                  <li>
+                    <div className="font-semibold">Narwal Sistemas <span className="text-xs text-gray-400">(2022 – atual)</span></div>
+                    <div className="text-sm">Desenvolvedor Full-Stack e Scrum Master, atuando em novas funcionalidades e sendo uma das refências do time.</div>
+                  </li>
+                  <li>
+                    <div className="font-semibold">Márcio Bikes <span className="text-xs text-gray-400">(2022)</span></div>
+                    <div className="text-sm">Assistente geral de oficina e estoque.</div>
+                  </li>
+                </ul>
+              </div>
+            </MotionCard>
+
+            <MotionCard delay={0.2}>
+              <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+                <h4 className="flex items-center gap-2 font-semibold mb-4">
+                  <span className="inline-flex items-center justify-center w-6 h-6 bg-green-600 text-white rounded-full text-sm">🛠️</span>
+                  Hard Skills
+                </h4>
+                <ul className="text-sm space-y-1">
+                  <div className="font-semibold">Linguagens/Frameworks:</div>
+                  <li>C#, Java, JavaScript, .NET/.NET Core e Razor/Blazor (HTML5 e CSS3).</li>
+                  <div className="font-semibold">Banco de Dados/Gerenciamento:</div>
+                  <li>SQL Server, MySQL, SQLite, PostgreSQL, MongoDB, Redis, DBeaver e Podman.</li>
+                  <div className="font-semibold">Arquitetura:</div>
+                  <li>MVC, TDD, DDD, SOLID, Clean Code.</li>
+                  <div className="font-semibold">DevOps:</div>
+                  <li>Azure, Pipelines, CI/CD.</li>
+                </ul>
+              </div>
+            </MotionCard>
+
+            <MotionCard delay={0.3}>
+              <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+                <h4 className="flex items-center gap-2 font-semibold mb-4">
+                  <span className="inline-flex items-center justify-center w-6 h-6 bg-pink-600 text-white rounded-full text-sm">🧠</span>
+                  Soft Skills
+                </h4>
+                <ul className="text-sm list-disc list-inside space-y-1">
+                  <li>Capacidade de aprendizagem rápida</li>
+                  <li>Organização e planejamento</li>
+                  <li>Liderança (Scrum Master)</li>
+                  <li>Resolução de problemas</li>
+                  <li>Trabalho em equipe</li>
+                  <li>Adaptabilidade</li>
+                </ul>
+              </div>
+            </MotionCard>
           </div>
         </section>
 
         <section id="projetos" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Projetos</h3>
-          <p className="mb-6">Repositórios públicos do meu GitHub:</p>
+          <p className="mb-6">Repositórios públicos do meu GitHub para estudos e ampliar conhecimento:</p>
           <div className="grid gap-4">
             {repos.slice(0, 8)
             .filter(repo => !repo.fork && repo.name !== "guijosegon"&& repo.name !== "guia-completo-scrum")
             .map((repo, index) => (
               <MotionCard key={repo.id} delay={index * 0.1}>
-                <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+                <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
                   <h4 className="text-lg font-semibold mb-1">{repo.name}</h4>
                   <p className="text-sm text-gray-800 dark:text-gray-300 mb-2">{repo.description || "Sem descrição."}</p>
                   <a
@@ -157,9 +186,9 @@ export default function App() {
 
         <section id="blog" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Blog</h3>
-          <p className="mb-6">Pesquisas e estudos realizados: (Em desenvolvimento)</p>
+          <p className="mb-6">Pesquisas e artigos de estudos realizados:</p>
           <div className="grid gap-4">
-            <div className={`p-4 rounded shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
+            <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
               <h4 className="text-lg font-semibold mb-1">Scrum na Prática: Entregando Valor com Agilidade</h4>
               <p className="text-sm text-gray-800 dark:text-gray-300 mb-2">Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
               <a
