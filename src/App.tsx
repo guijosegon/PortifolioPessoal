@@ -169,7 +169,7 @@ export default function App() {
               <MotionCard key={repo.id} delay={index * 0.1}>
                 <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
                   <h4 className="text-lg font-semibold mb-1">{repo.name}</h4>
-                  <p className="text-sm text-gray-800 dark:text-gray-300 mb-2">{repo.description || "Sem descrição."}</p>
+                  <p className="text-sm text-gray-900 dark:text-gray-500 mb-2">{repo.description || "Sem descrição."}</p>
                   <a
                     href={repo.html_url}
                     target="_blank"
@@ -190,7 +190,7 @@ export default function App() {
           <div className="grid gap-4">
             <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
               <h4 className="text-lg font-semibold mb-1">Scrum na Prática: Entregando Valor com Agilidade</h4>
-              <p className="text-sm text-gray-800 dark:text-gray-300 mb-2">Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
+              <p className="text-sm text-gray-800 dark:text-gray-500 mb-2">Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
               <a
                 href="https://github.com/guijosegon/GuiaCompletoScrum"
                 target="_blank"
@@ -259,7 +259,7 @@ export default function App() {
       </main>
 
       <footer className="text-center py-6 text-sm border-t mt-24 dark:border-gray-700">
-        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Este é o portfólio pessoal desenvolvido em React + TypeScript com Vite e Tailwind CSS, hospedado gratuitamente no Render. Usado especialmente para apredizagem em Tailwind CSS.</p>
+        <p className="text-sm text-gray-600 dark:text-gray-500 mb-2">Este é o portfólio pessoal desenvolvido em React + TypeScript com Vite e Tailwind CSS, hospedado gratuitamente no Render. Usado especialmente para apredizagem em Tailwind CSS.</p>
         © {new Date().getFullYear()} Guilherme José Gonçalves. Todos os direitos reservados.
       </footer>
     </div>
