@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
-import QRCode from "react-qr-code";
 
 const MotionCard = ({ children, delay = 0 }) => (
   <motion.div
@@ -13,6 +12,38 @@ const MotionCard = ({ children, delay = 0 }) => (
     {children}
   </motion.div>
 );
+
+function FloatingSocials() {
+  return (
+    <div className="fixed bottom-6 right-6 flex flex-col items-center gap-4 z-50">
+      <a
+        href="https://github.com/guijosegon"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 transition"
+        aria-label="GitHub"
+      >
+        <FaGithub />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/guilhermejosegon"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-500 transition"
+        aria-label="LinkedIn"
+      >
+        <FaLinkedin />
+      </a>
+      <a
+        href="mailto:guilhermejosegon@gmail.com"
+        className="bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-500 transition"
+        aria-label="Email"
+      >
+        <FaEnvelope />
+      </a>
+    </div>
+  );
+}
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -50,7 +81,6 @@ export default function App() {
               <button onClick={() => scrollToId("projetos")}>Projetos</button>
               <button onClick={() => scrollToId("blog")}>Blog</button>
               <button onClick={() => scrollToId("Formulario")}>Envie uma mensagem</button>
-              <button onClick={() => scrollToId("contato")}>Contato</button>
             </nav>
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -72,7 +102,7 @@ export default function App() {
           <div>
             <h2 className="text-4xl font-bold leading-snug">Olá, eu sou Guilherme Gonçalves</h2>
             <p className="text-lg mt-4">
-              Desenvolvedor Full-Stack com rápida capacidade de aprendizagem, comprometido com projetos e processos ágeis. Atualmente cursando Ciência da Computação na UNESC e atuando como desenvolvedor e scrum master na Narwal Sistemas.
+              Desenvolvedor Full-Stack com rápida capacidade de aprendizagem, comprometido com projetos e processos ágeis. Atualmente cursando Ciência da Computação na UNESC e atuando como desenvolvedor e scrum master na Narwal Sistemas. Estou em constante evolução, sempre em busca de novos desafios e aprimoramento profissional.
             </p>
             <a
               href="#projetos"
@@ -93,13 +123,7 @@ export default function App() {
         <section id="sobre" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Sobre mim</h3>
           <p className="text-base leading-relaxed">
-          Desenvolvedor Full-Stack com experiência profissional em C#, .NET, JavaScript e bancos de dados como SQL Server. Atuo com foco em integrações (RESTful APIs, OData, Webhooks), otimizações (LINQ, paralelismo, cache), autenticação (JWT, OAuth2), além de arquitetura monolítica modular e noções de microsserviços. Também possuo domínio em comunicação em tempo real com SignalR.
-          <br />
-          <br />
-          Como Scrum Master, facilito cerimônias e processos ágeis, realizo code reviews e revisões de produto com visão técnica, além de gerenciar pipelines e implantações no Azure.
-          <br />
-          <br />
-          Estou em constante evolução, sempre em busca de novos desafios e aprimoramento profissional.
+          Tenho experiência prática em C#, .NET, JavaScript, SQL Server, entre outras tecnologias. Atuo com foco em integrações (RESTful, Webhooks, OData), otimizações com LINQ e paralelismo, autenticação segura (JWT, OAuth2), além de arquitetura modular e fundamentos de microsserviços. Também possuo domínio em comunicação em tempo real com SignalR e gerenciamento de pipelines e releases na Azure DevOps. Também como Scrum Master, lidero cerimônias ágeis, realizo code reviews, acompanho entregas e estimativas e promovo a melhoria contínua do time com foco em resultados sustentáveis e colaboração.          <br />
           </p>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
             <MotionCard delay={0.1}>
@@ -110,12 +134,12 @@ export default function App() {
                 </h4>
                 <ul className="text-sm space-y-3">
                   <li>
-                    <div className="font-semibold">Narwal Sistemas <span className="text-xs text-gray-400">(2022 – atual)</span></div>
-                    <div className="text-sm">Desenvolvedor Full-Stack e Scrum Master, atuando em novas funcionalidades e sendo uma das refências do time.</div>
+                    <div className="font-semibold">Narwal Sistemas <span className="text-xs text-gray-400">(2022 – Atual)</span></div>
+                    <div className="text-sm">Atualmente atuo na Narwal Sistemas, onde desempenho papel duplo como Desenvolvedor Full-Stack e Scrum Master, contribuindo diretamente para o desenvolvimento de soluções robustas, com participação em projetos relevantes e mais de 1.700 commits registrados.</div>
                   </li>
                   <li>
                     <div className="font-semibold">Márcio Bikes <span className="text-xs text-gray-400">(2022)</span></div>
-                    <div className="text-sm">Assistente geral de oficina e estoque.</div>
+                    <div className="text-sm">Assistente geral de oficina e estoque, sendo multifuncional nas atividades.</div>
                   </li>
                 </ul>
               </div>
@@ -131,11 +155,11 @@ export default function App() {
                   <div className="font-semibold">Linguagens/Frameworks:</div>
                   <li>C#, Java, JavaScript, .NET/.NET Core e Razor/Blazor (HTML5 e CSS3).</li>
                   <div className="font-semibold">Banco de Dados/Gerenciamento:</div>
-                  <li>SQL Server, MySQL, SQLite, PostgreSQL, MongoDB, Redis, DBeaver e Podman.</li>
+                  <li>SQL Server, MySQL, PostgreSQL, MongoDB, Redis, DBeaver e Podman/Docker</li>
                   <div className="font-semibold">Arquitetura:</div>
                   <li>MVC, TDD, DDD, SOLID, Clean Code.</li>
                   <div className="font-semibold">DevOps:</div>
-                  <li>Azure, Pipelines, CI/CD.</li>
+                  <li>Azure, Pipelines/Releases, CI/CD.</li>
                 </ul>
               </div>
             </MotionCard>
@@ -148,11 +172,14 @@ export default function App() {
                 </h4>
                 <ul className="text-sm list-disc list-inside space-y-1">
                   <li>Capacidade de aprendizagem rápida</li>
+                  <li>Responsabilidade com entregas</li>
                   <li>Organização e planejamento</li>
                   <li>Liderança (Scrum Master)</li>
                   <li>Resolução de problemas</li>
                   <li>Trabalho em equipe</li>
                   <li>Adaptabilidade</li>
+                  <li>Proatividade</li>
+                  <li>Empatia</li>
                 </ul>
               </div>
             </MotionCard>
@@ -221,41 +248,7 @@ export default function App() {
           </form>
         </section>
 
-<section id="contato" className="mt-24">
-  <h3 className="text-2xl font-bold mb-4">Contato</h3>
-  <ul className="text-sm mb-6 space-y-3">
-    <li className="flex items-center gap-2">
-      <FaEnvelope className="text-lg" />
-      <span>guilhermejosegon@gmail.com</span>
-    </li>
-    <li className="flex items-center gap-2">
-      <FaLinkedin className="text-lg" />
-      <a
-        href="https://www.linkedin.com/in/guilhermejosegon"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline hover:text-blue-500"
-      >
-        linkedin.com/in/guilhermejosegon
-      </a>
-    </li>
-    <li className="flex items-center gap-2">
-      <FaGithub className="text-lg" />
-      <a
-        href="https://github.com/guijosegon"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline hover:text-blue-500"
-      >
-        github.com/guijosegon
-      </a>
-    </li>
-  </ul>
-
-  <div className={`p-4 rounded w-fit shadow ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
-    <QRCode value={window.location.href} size={128} />
-  </div>
-</section>
+      <FloatingSocials />
       </main>
 
       <footer className="text-center py-6 text-sm border-t mt-24 dark:border-gray-700">
