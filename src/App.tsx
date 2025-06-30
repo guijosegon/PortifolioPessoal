@@ -80,7 +80,6 @@ export default function App() {
               <button onClick={() => scrollToId("sobre")}>Sobre mim</button>
               <button onClick={() => scrollToId("projetos")}>Projetos</button>
               <button onClick={() => scrollToId("blog")}>Blog</button>
-              <button onClick={() => scrollToId("Formulario")}>Envie uma mensagem</button>
             </nav>
             <button
               onClick={() => setDarkMode(!darkMode)}
@@ -229,25 +228,6 @@ export default function App() {
             </div>
           </div>
         </section>
-
-        <section id="Formulario" className="mt-24">
-          <h3 className="text-2xl font-bold mb-4">Envie uma Mensagem</h3>
-          <form
-            action="https://formsubmit.co/guilhermejosegon@gmail.com"
-            method="POST"
-            className="grid gap-4 max-w-xl"
-          >
-            <input type="text" name="_honey" style={{ display: 'none' }} />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="text" name="name" placeholder="Seu nome" required className={`p-2 rounded border ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`} />
-            <input type="email" name="email" placeholder="Seu email" required className={`p-2 rounded border ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`} />
-            <textarea name="message" placeholder="Sua mensagem" required className={`p-2 rounded border ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}></textarea>
-            <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-              Enviar mensagem
-            </button>
-          </form>
-        </section>
-
       <FloatingSocials />
       </main>
 
