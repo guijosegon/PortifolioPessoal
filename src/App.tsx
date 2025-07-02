@@ -121,7 +121,7 @@ const scrollToId = (id) => {
           <div>
             <h2 className="text-4xl font-bold leading-snug">Olá, eu sou Guilherme Gonçalves</h2>
             <p className="text-lg mt-4">
-              Desenvolvedor Full-Stack com rápida capacidade de aprendizagem, comprometido com projetos e processos ágeis. Atualmente desenvolvedor full-stack na Narwal Sistemas e cursando Ciência da Computação na UNESC. Estou em constante evolução, sempre em busca de novos desafios e aprimoramento profissional.
+              Desenvolvedor Full-Stack com rápida capacidade de aprendizagem, comprometido com projetos e processos ágeis. Atualmente atuando na Narwal Sistemas e finalizando Ciência da Computação na UNESC. Estou em constante evolução, sempre em busca de novos desafios e aprimoramento profissional.
             </p>
             <a
               href="#projetos"
