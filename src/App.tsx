@@ -96,7 +96,6 @@ const scrollToId = (id) => {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
   return (
     <div className={`${darkMode ? "bg-gray-900 text-gray-100" : "bg-gray-100 text-gray-900"} min-h-screen font-sans`}>
       <header className={`sticky top-0 z-10 ${darkMode ? "bg-gray-800" : "bg-white"} shadow`}>
@@ -108,17 +107,11 @@ const scrollToId = (id) => {
               <button onClick={() => scrollToId("projetos")}>Projetos</button>
               <button onClick={() => scrollToId("blog")}>Blog</button>
             </nav>
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="text-xs px-3 py-1 border rounded shadow-sm hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              {darkMode ? "☀️ Claro" : "🌙 Escuro"}
-            </button>
+            <button onClick={() => setDarkMode(!darkMode)} className="text-xs px-3 py-1 border rounded shadow-sm hover:bg-gray-200 dark:hover:bg-gray-700"> {darkMode ? "☀️ Claro" : "🌙 Escuro"}</button>
           </div>
         </div>
       </header>
       <main className="px-6 py-16 max-w-5xl mx-auto">
-
         <motion.section
           className="grid md:grid-cols-2 gap-10 items-center"
           initial={{ opacity: 0, y: -30 }}
@@ -145,7 +138,6 @@ const scrollToId = (id) => {
             />
           </div>
         </motion.section>
-
         <section id="sobre" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Sobre mim</h3>
           <p className="text-base leading-relaxed">
@@ -170,7 +162,6 @@ const scrollToId = (id) => {
                 </ul>
               </div>
             </MotionCard>
-
             <MotionCard delay={0.2}>
               <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
                 <h4 className="flex items-center gap-2 font-semibold mb-4">
@@ -189,7 +180,6 @@ const scrollToId = (id) => {
                 </ul>
               </div>
             </MotionCard>
-
             <MotionCard delay={0.3}>
               <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
                 <h4 className="flex items-center gap-2 font-semibold mb-4">
@@ -211,7 +201,6 @@ const scrollToId = (id) => {
             </MotionCard>
           </div>
         </section>
-
         <section id="projetos" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Projetos</h3>
           <p className="mb-6">Repositórios públicos do meu GitHub para estudos e ampliar conhecimento:</p>
