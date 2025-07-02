@@ -121,7 +121,7 @@ const scrollToId = (id) => {
           <div>
             <h2 className="text-4xl font-bold leading-snug">Olá, eu sou Guilherme Gonçalves</h2>
             <p className="text-lg mt-4">
-              Desenvolvedor Full-Stack com rápida capacidade de aprendizagem, comprometido com projetos e processos ágeis. Atualmente cursando Ciência da Computação na UNESC e atuando como desenvolvedor e scrum master na Narwal Sistemas. Estou em constante evolução, sempre em busca de novos desafios e aprimoramento profissional.
+              Desenvolvedor Full-Stack com rápida capacidade de aprendizagem, comprometido com projetos e processos ágeis. Atualmente desenvolvedor full-stack na Narwal Sistemas e cursando Ciência da Computação na UNESC. Estou em constante evolução, sempre em busca de novos desafios e aprimoramento profissional.
             </p>
             <a
               href="#projetos"
@@ -153,7 +153,7 @@ const scrollToId = (id) => {
                 <ul className="text-sm space-y-3">
                   <li>
                     <div className="font-semibold">Narwal Sistemas <span className="text-xs text-gray-400">(2022 – Atual)</span></div>
-                    <div className="text-sm">Atualmente atuo na Narwal Sistemas, onde desempenho papel duplo como Desenvolvedor Full-Stack e Scrum Master, contribuindo diretamente para o desenvolvimento de soluções robustas, com participação em projetos relevantes e mais de 1.700 commits registrados.</div>
+                    <div className="text-sm">Atualmente atuo na Narwal Sistemas, onde desempenho papel como desenvolvedor full-stack, contribuindo diretamente para o desenvolvimento de soluções robustas, com participação em projetos relevantes, sendo scrum master e referência técnica.</div>
                   </li>
                   <li>
                     <div className="font-semibold">Márcio Bikes <span className="text-xs text-gray-400">(2022)</span></div>
