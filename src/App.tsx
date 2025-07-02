@@ -2,6 +2,18 @@ import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+const projectTags: Record<string, string[]> = {
+  "api-controle-visitantes": ["Node", "MongoDB", "REST", "Express", "Mongoose"],
+  "app-travels": ["Java", "SQLite", "Retrofit", "Mobile"],
+  "comparador_sequecial_vs_paralelo": ["Java 17+", "Multithreading", "ForkJoinPool"],
+  "compilador": ["C#", ".NET 8.0"],
+  "grpc_agendamento_docker": ["C#", ".NET 8.0", "gRPC", "Docker"],
+  "dijkstra-caminho-mais-barato": ["Node", "Dijkstra"],
+  "poc-gestao-saude-idosos": ["C#", ".NET 8.0", "PostgreSQL", "API RESTful", "Razor", "Google Charts", "DDD", "MVC"],
+  "portfolio-guijosegon": ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion"],
+  "site-institucional": ["React", "Node", "Next"]
+};
+
 const MotionCard = ({ children, delay = 0 }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -53,17 +65,32 @@ export default function App() {
 
   const [repos, setRepos] = useState([]);
 
-  useEffect(() => {
-    document.title = "Guilherme José Gonçalves | Portfólio";
-    localStorage.setItem("theme", JSON.stringify(darkMode));
+useEffect(() => {
+  document.title = "Guilherme José Gonçalves | Portfólio";
+  localStorage.setItem("theme", JSON.stringify(darkMode));
 
+  const cacheKey = "github_repos";
+  const cacheTimeKey = "github_repos_time";
+  const cacheDuration = 60 * 60 * 1000;
+
+  const cached = localStorage.getItem(cacheKey);
+  const cachedTime = localStorage.getItem(cacheTimeKey);
+
+  if (cached && cachedTime && Date.now() - parseInt(cachedTime) < cacheDuration) {
+    setRepos(JSON.parse(cached));
+  } else {
     fetch("https://api.github.com/users/guijosegon/repos")
       .then(res => res.json())
-      .then(data => setRepos(data))
+      .then(data => {
+        setRepos(data);
+        localStorage.setItem(cacheKey, JSON.stringify(data));
+        localStorage.setItem(cacheTimeKey, Date.now().toString());
+      })
       .catch(err => console.error("Erro ao buscar repositórios:", err));
-  }, [darkMode]);
+  }
+}, [darkMode]);
 
-  const scrollToId = (id) => {
+const scrollToId = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
@@ -189,50 +216,44 @@ export default function App() {
           <h3 className="text-2xl font-bold mb-4">Projetos</h3>
           <p className="mb-6">Repositórios públicos do meu GitHub para estudos e ampliar conhecimento:</p>
           <div className="grid gap-4">
-            {repos.slice(0, 8)
-            .filter(repo => !repo.fork && repo.name !== "guijosegon"&& repo.name !== "guia-completo-scrum")
+            {repos.slice(0, 10)
+            .filter(repo => !repo.fork 
+              && repo.name !== "guijosegon"
+              && repo.name !== "guia-completo-scrum" 
+              && repo.name !== "project-assets"
+              && repo.name !== "api-controle-visitantes"
+            )
             .map((repo, index) => (
               <MotionCard key={repo.id} delay={index * 0.1}>
                 <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
                   <h4 className="text-lg font-semibold mb-1">{repo.name}</h4>
-                  <p className="text-sm text-gray-900 dark:text-gray-500 mb-2">{repo.description || "Sem descrição."}</p>
-                  <a
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 text-sm underline"
-                  >
-                    Ver no GitHub
-                  </a>
+                  {projectTags[repo.name]?.map((tag) => (
+                    <span key={tag} className={`text-xs ${darkMode ? "bg-gray-900 text-gray-200" : "bg-gray-200 text-gray-900"} px-4 py-0.5 rounded-full mr-2 mb-2 inline-block`}>
+                      {tag}
+                    </span>
+                  ))}
+                  <p className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-900"} mb-2`}>{repo.description || "Sem descrição."}</p>               
+                  <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 text-sm underline"> Ver no GitHub </a>
                 </div>
               </MotionCard>
             ))}
           </div>
         </section>
-
         <section id="blog" className="mt-24">
           <h3 className="text-2xl font-bold mb-4">Blog</h3>
           <p className="mb-6">Pesquisas e artigos de estudos realizados:</p>
           <div className="grid gap-4">
             <div className={`p-4 rounded shadow hover:scale-105 transition-all duration-300 border border-transparent ${darkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}>
               <h4 className="text-lg font-semibold mb-1">Scrum na Prática: Entregando Valor com Agilidade</h4>
-              <p className="text-sm text-gray-800 dark:text-gray-500 mb-2">Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
-              <a
-                href="https://github.com/guijosegon/GuiaCompletoScrum"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 text-sm underline"
-              >
-                Acessar pesquisa
-              </a>
+              <p className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-900"} mb-2`}>Scrum é um framework ágil utilizado para gerenciar projetos complexos e adaptativos, especialmente no desenvolvimento de software. Sua estrutura é simples, mas sua aplicação exige disciplina e colaboração.</p>
+              <a href="https://github.com/guijosegon/GuiaCompletoScrum" target="_blank" rel="noopener noreferrer" className="text-blue-600 text-sm underline"> Acessar pesquisa </a>
             </div>
           </div>
         </section>
       <FloatingSocials />
       </main>
-
-      <footer className="text-center py-6 text-sm border-t mt-24 dark:border-gray-700">
-        <p className="text-sm text-gray-600 dark:text-gray-500 mb-2">Este é o portfólio pessoal desenvolvido em React + TypeScript com Vite e Tailwind CSS, hospedado gratuitamente no Render. Usado especialmente para apredizagem em Tailwind CSS.</p>
+      <footer className="text-center py-6 text-sm border-t mt-24 border-gray-700">
+        <p className="text-sm text-gray-600 mb-2">Este é o portfólio pessoal desenvolvido em React + TypeScript com Vite e Tailwind CSS, hospedado gratuitamente no Render. Usado especialmente para apredizagem em Tailwind CSS.</p>
         © {new Date().getFullYear()} Guilherme José Gonçalves. Todos os direitos reservados.
       </footer>
     </div>
